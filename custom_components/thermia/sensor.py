@@ -123,9 +123,9 @@ async def async_setup_entry(
                     TEMP_CELSIUS,
                 )
             )
-        heat_pump.buffer_tank_temperature = heat_pump.get_register_data_by_register_group_and_name('REG_GROUP_TEMPERATURES',
-                                                                                                   'REG_OPER_DATA_BUFFER_TANK')['value']
-        
+            
+            
+           
         if heat_pump.buffer_tank_temperature is not None:
             hass_thermia_sensors.append(
                 ThermiaGenericSensor(
