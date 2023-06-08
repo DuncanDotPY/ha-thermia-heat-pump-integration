@@ -139,6 +139,8 @@ async def async_setup_entry(
                     "measurement",
                     "buffer_tank_temperature",
                     TEMP_CELSIUS,
+                )
+            )
         
         
         if heat_pump.desired_supply_line_temperature is not None:
