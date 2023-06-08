@@ -123,7 +123,24 @@ async def async_setup_entry(
                     TEMP_CELSIUS,
                 )
             )
-
+        heat_pump.buffer_tank_temperature = heat_pump.get_register_data_by_register_group_and_name('REG_GROUP_TEMPERATURES',
+                                                                                                   'REG_OPER_DATA_BUFFER_TANK')['value']
+        
+        if heat_pump.buffer_tank_temperature is not None:
+            hass_thermia_sensors.append(
+                ThermiaGenericSensor(
+                    coordinator,
+                    idx,
+                    "is_online",
+                    "Buffer Tank Temperature",
+                    MDI_TEMPERATURE_ICON,
+                    EntityCategory.DIAGNOSTIC,
+                    "temperature",
+                    "measurement",
+                    "buffer_tank_temperature",
+                    TEMP_CELSIUS,
+        
+        
         if heat_pump.desired_supply_line_temperature is not None:
             hass_thermia_sensors.append(
                 ThermiaGenericSensor(
