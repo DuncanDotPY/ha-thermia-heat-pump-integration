@@ -124,8 +124,6 @@ async def async_setup_entry(
                 )
             )
             
-            
-           
         if heat_pump.buffer_tank_temperature is not None:
             hass_thermia_sensors.append(
                 ThermiaGenericSensor(
@@ -141,7 +139,6 @@ async def async_setup_entry(
                     TEMP_CELSIUS,
                 )
             )
-        
         
         if heat_pump.desired_supply_line_temperature is not None:
             hass_thermia_sensors.append(
